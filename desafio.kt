@@ -1,35 +1,101 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
-
-//enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
-
-data class Usuario(val firstName: String, val lastName: String, val id: Int){
-		fun usuario():String ="Nome completo: $nomeCompleto \nID: $id"
-    	val nomeCompleto = firstName + " " + lastName
-    //criar uma lista para armazenar os usuarios
+//classe base
+//realização de testes ainda
+open class Usuario(firstName:String,lastName: String,id: Int,curso: String,nivel:String) {
+    val name: String = firstName + " " + lastName
+    val curso: String = curso
+    val nivel: String = nivel
+    val nomeComp = arrayListOf<String>(name) //foco agora é saber se é possivel realizar mais de uma fun dentro de uma class
+    fun addUser(name:String, curso:String) {
+    nomeComp.add(name+" "+curso)
+    return println("$name foi adicionado com sucesso ao curso $curso")}
+    val users: List<String> = nomeComp
+    fun getAddUser(): List<String> {                                  // 4
+    return users + curso
 }
-//criar uma fun para realizar a matricula dos usuarios nos cursos
-	
-        
+}
 
-	
-//fun matricular(usuario: Usuario) {
-        //TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
-   // }
+//classe derivada
+class webDeveloper(firstName: String,lastName: String,id: Int,curso: String,nivel:String): Usuario(firstName,lastName,id,curso,nivel) {
+    fun website() {
+        if(curso=="webDeveloper" && nivel=="Basico"){
+        println("$name foi adicionado ao curso de $curso")
+    }        
+        else if(curso=="webDeveloper" && nivel=="Intermediario"){
+        println("$name foi adicionado ao curso de $curso")
+    }
+        else if(curso=="webDeveloper" && nivel=="Avancado"){
+            println("$name foi adicionado ao curso de $curso")
+    }
+        else{
+            println("favor informar um curso valido")}
+        }
+}
+//classe derivada
+class androidDeveloper(firstName:String,lastName:String,id:Int,curso: String,nivel:String): Usuario(firstName,lastName,id,curso,nivel) {
+    fun android() {
+        if(curso=="androidDeveloper" && nivel=="Basico"){
+        println("$name foi adicionado ao curso de $curso")
+    }        
+        else if(curso=="androidDeveloper" && nivel=="Intermediario"){
+        println("$name foi adicionado ao curso de $curso")
+    }
+        else if(curso=="androidDeveloper" && nivel=="Avancado"){
+            println("$name foi adicionado ao curso de $curso")
+    }
+        else{
+            println("favor informar um curso valido")}
+        }
+}
+//classe derivada
+class iosDeveloper(firstName:String,lastName:String,id:Int,curso:String,nivel:String): Usuario(firstName,lastName,id,curso,nivel) {
+    fun iosapp() {
+        if(curso=="iosDeveloper" && nivel=="Basico"){
+        println("$name foi adicionado ao curso de $curso")
+    }        
+        else if(curso=="iosDeveloper" && nivel=="Intermediario"){
+        println("$name foi adicionado ao curso de $curso")
+    }
+        else if(curso=="iosDeveloper" && nivel=="Avancado"){
+            println("$name foi adicionado ao curso de $curso")
+    }
+        else{
+            println("favor informar um curso valido")}
+        }
+}
+//////////////////////////////////////////////////
+//Listagem
+val systemUsers: MutableList<String> = mutableListOf()        // 1
+                              // 2
+//Pulo do gato
 
 
-//data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
 
-//data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
-   // val inscritos = mutableListOf<Usuario>()
-    
-
-//}
-
+    /*addSystemUser(4)                                              // 5 
+    println("Tot sudoers: ${getSysSudoers().size}")               // 6
+    getSysSudoers().forEach {                                     // 7
+        i -> println("Some useful info on user $i")
+    }
+    // getSysSudoers().add(5) <- Error!  */                         // 8
+////////////////////////////////////////////////////
 fun main() {
     //testes
-    val pessoa = Usuario("Luan","Moraes", 1)
-    println(pessoa.usuario())
-    //TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    //TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    var user = Usuario("Luan","Moraes",0,"teste","Teste")
+        user.addUser("Camili","Java")
+        user.addUser("Luana","Flutter")
+		val wd = webDeveloper("Luana","Simenton",1,"webDeveloper","Basico")
+        wd.website()
+   /* val wd = webDeveloper("Gennady", "Moraes",1,"webDeveloper","Intermediario")
+    wd.website()
+    val ad = androidDeveloper("Gaurav", "Simenton",2,"androidDeveloper","Avancado")
+    ad.android()
+    val iosd = iosDeveloper("Praveen", "Aparecida",3,"iosDeveloper","Basico")
+    iosd.iosapp()
+    
+    addSystemUser("Luana")
+    addSystemUser("Lucas")
+    print(User)*/
+    //user.getAddUser().forEach {                                     // 7
+    //    i -> println("$i - ")
+   // }
 }
