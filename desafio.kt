@@ -40,11 +40,13 @@ fun main() {
    
     val luan = Users("Luan","Moraes", "luanmoraes@gmail.com", Post.STUDENT)
     val camili = Users("Camili","Compagnoni", "camilicompagnoni@gmail.com", Post.STUDENT)
+    val venilton = Users("Venilto","Falvo", "veniltonfalvo@gmail.com", Post.TEACHER)
    
     val androidTraining = Formation("Formação Android Developer", contentList, Level.INTERMEDIARY)
      
     androidTraining.addUser(luan)
     androidTraining.addUser(camili)
+    androidTraining.addUser(venilton)
    
   	println(" -----------------------------------------")
     println("|${androidTraining.nome} - ${androidTraining.level}|")
